@@ -2,15 +2,17 @@
 Copyright (c), 2004-2007 Adrian Kuhn. This class is part of Hapax. Hapax is distributed under BSD License, see package comment.
 "
 Class {
-	#name : #AIDendrogramTest,
-	#superclass : #TestCase,
+	#name : 'AIDendrogramTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'dendrogram'
 	],
-	#category : #'AI-HierarchicalClustering-Tests-Core'
+	#category : 'AI-HierarchicalClustering-Tests-Core',
+	#package : 'AI-HierarchicalClustering-Tests',
+	#tag : 'Core'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 AIDendrogramTest >> setUp [
 	| ab cd ef abcd efg |
 	super setUp.
@@ -22,13 +24,13 @@ AIDendrogramTest >> setUp [
 	dendrogram := abcd merge: efg at: 7	"#(((a 1 b) 4 (c 2 d)) 7 ((e 3 f) 5 g))"
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 AIDendrogramTest >> testAllLeaves [
 	self assert: dendrogram elements size equals: 7.
 	self assert: dendrogram elements equals: #(#a #b #c #d #e #f #g)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 AIDendrogramTest >> testIndex [
 	self assert: dendrogram index equals: 1.
 	self assert: dendrogram left index equals: 1.
@@ -39,7 +41,7 @@ AIDendrogramTest >> testIndex [
 	self assert: dendrogram right right index equals: 7
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 AIDendrogramTest >> testSize [
 	self assert: dendrogram size equals: 7.
 	self assert: dendrogram left size equals: 4.

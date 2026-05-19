@@ -2,12 +2,14 @@
 Copyright (c), 2004-2007 Adrian Kuhn. This class is part of Hapax. Hapax is distributed under BSD License, see package comment.
 "
 Class {
-	#name : #AISimilarityItemTest,
-	#superclass : #TestCase,
-	#category : #'AI-HierarchicalClustering-Tests-Core'
+	#name : 'AISimilarityItemTest',
+	#superclass : 'TestCase',
+	#category : 'AI-HierarchicalClustering-Tests-Core',
+	#package : 'AI-HierarchicalClustering-Tests',
+	#tag : 'Core'
 }
 
-{ #category : #'As yet unclassified' }
+{ #category : 'As yet unclassified' }
 AISimilarityItemTest >> testDistance [
 	| a b c elements engine clusters |
 	a := AIVectorItem with: #a and: #(1 0).
@@ -25,7 +27,7 @@ AISimilarityItemTest >> testDistance [
 	self assert: ((clusters select: [ :each | each size = 2 ]) first includes: b)
 ]
 
-{ #category : #'As yet unclassified' }
+{ #category : 'As yet unclassified' }
 AISimilarityItemTest >> testSimilarity [
 	| a b c elements engine clusters |
 	a := AISimilarityItem with: #a and: #(1 0).

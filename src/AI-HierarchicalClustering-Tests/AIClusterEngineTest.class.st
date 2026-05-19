@@ -2,12 +2,14 @@
 Copyright (c), 2004-2007 Adrian Kuhn. This class is part of Hapax. Hapax is distributed under BSD License, see package comment.
 "
 Class {
-	#name : #AIClusterEngineTest,
-	#superclass : #TestCase,
-	#category : #'AI-HierarchicalClustering-Tests-Core'
+	#name : 'AIClusterEngineTest',
+	#superclass : 'TestCase',
+	#category : 'AI-HierarchicalClustering-Tests-Core',
+	#package : 'AI-HierarchicalClustering-Tests',
+	#tag : 'Core'
 }
 
-{ #category : #'testing - clustering' }
+{ #category : 'testing - clustering' }
 AIClusterEngineTest >> testClustering300Elements [
 
 	| input clusty clusters |
@@ -18,7 +20,7 @@ AIClusterEngineTest >> testClustering300Elements [
 	^ clusters
 ]
 
-{ #category : #'testing - clustering' }
+{ #category : 'testing - clustering' }
 AIClusterEngineTest >> testClusteringWithAverageLinkage [
 
 	| input clusty clusters |
@@ -41,7 +43,7 @@ AIClusterEngineTest >> testClusteringWithAverageLinkage [
 	^ clusters
 ]
 
-{ #category : #'testing - clustering' }
+{ #category : 'testing - clustering' }
 AIClusterEngineTest >> testClusteringWithCentroid [
 
 	| input clusty clusters |
@@ -64,7 +66,7 @@ AIClusterEngineTest >> testClusteringWithCentroid [
 	^ clusters
 ]
 
-{ #category : #'testing - clustering' }
+{ #category : 'testing - clustering' }
 AIClusterEngineTest >> testClusteringWithCompleteLinkage [
 
 	| input clusty clusters |
@@ -87,7 +89,7 @@ AIClusterEngineTest >> testClusteringWithCompleteLinkage [
 	^ clusters
 ]
 
-{ #category : #'testing - clustering' }
+{ #category : 'testing - clustering' }
 AIClusterEngineTest >> testClusteringWithMeanLinkage [
 
 	| input clusty clusters |
@@ -110,7 +112,7 @@ AIClusterEngineTest >> testClusteringWithMeanLinkage [
 	^ clusters
 ]
 
-{ #category : #'testing - clustering' }
+{ #category : 'testing - clustering' }
 AIClusterEngineTest >> testClusteringWithSingleLinkage [
 
 	| input clusty clusters |
@@ -133,7 +135,7 @@ AIClusterEngineTest >> testClusteringWithSingleLinkage [
 	^ clusters
 ]
 
-{ #category : #'testing - clustering' }
+{ #category : 'testing - clustering' }
 AIClusterEngineTest >> testClusteringWithWardsMethod [
 	| input clusty clusters |
 	input := #(#(1 2 3 5) #(11 12 15) #(21 22 23 25) #(31 32 35) #(41 42 43 45 47)).
@@ -149,7 +151,7 @@ AIClusterEngineTest >> testClusteringWithWardsMethod [
 	^ clusters
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 AIClusterEngineTest >> testDendrogram [
 
 	| input clusty expected |
@@ -177,7 +179,7 @@ AIClusterEngineTest >> testDendrogram [
 	self assert: clusty dendrogram equals: expected
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 AIClusterEngineTest >> testDistanceMatrix [
 
     | input clusty |
@@ -186,7 +188,7 @@ AIClusterEngineTest >> testDistanceMatrix [
     self assert: clusty distanceMatrix equals: (AIDistanceSquare on: input)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 AIClusterEngineTest >> testItems [
 
 	| input clusty |
@@ -195,7 +197,7 @@ AIClusterEngineTest >> testItems [
 	self assert: clusty items equals: input.
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 AIClusterEngineTest >> testSeriationEngine [
 	
 	| input output |
