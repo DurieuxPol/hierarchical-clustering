@@ -2,22 +2,24 @@
 Copyright (c), 2004-2007 Adrian Kuhn. This class is part of Hapax. Hapax is distributed under BSD License, see package comment.
 "
 Class {
-	#name : #AIDendrogramLeaf,
-	#superclass : #AIDendrogram,
+	#name : 'AIDendrogramLeaf',
+	#superclass : 'AIDendrogram',
 	#instVars : [
 		'element'
 	],
-	#category : #'AI-HierarchicalClustering-Dendrogram'
+	#category : 'AI-HierarchicalClustering-Dendrogram',
+	#package : 'AI-HierarchicalClustering',
+	#tag : 'Dendrogram'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 AIDendrogramLeaf class >> with: anElement [
 	^ self new
 		element: anElement;
 		yourself
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 AIDendrogramLeaf >> = aMLDendrogram [
 
 	self == aMLDendrogram
@@ -27,87 +29,87 @@ AIDendrogramLeaf >> = aMLDendrogram [
 	^ self element = aMLDendrogram element
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogramLeaf >> element [
 	
 	^element
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogramLeaf >> element: anObject [
 	element := anObject
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 AIDendrogramLeaf >> elementsDo: aBlock [
 	
 	aBlock value: element
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 AIDendrogramLeaf >> hash [ 
 
 	^ self element hash
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 AIDendrogramLeaf >> isLeaf [
 
 	^ true
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 AIDendrogramLeaf >> keys [
 
 	^ self element keys
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 AIDendrogramLeaf >> leavesDo: aBlock [
 	
 	aBlock value: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogramLeaf >> left [
 	
 	^self
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 AIDendrogramLeaf >> nodesDo: aBlock [
 	"does nothing"
 	
 	
 ]
 
-{ #category : #seriation }
+{ #category : 'seriation' }
 AIDendrogramLeaf >> orderLeafs [
 	"do nothing"
 	
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogramLeaf >> right [
 	
 	^self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogramLeaf >> size [
 	
 	^1
 ]
 
-{ #category : #seriation }
+{ #category : 'seriation' }
 AIDendrogramLeaf >> swap [
 	"does nothing"
 	
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogramLeaf >> threshold [
 	
 	^ Number zero

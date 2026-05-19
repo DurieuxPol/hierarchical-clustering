@@ -2,17 +2,19 @@
 Copyright (c), 2004-2007 Adrian Kuhn. This class is part of Hapax. Hapax is distributed under BSD License, see package comment.
 "
 Class {
-	#name : #AIDistanceSquare,
-	#superclass : #AISymetricMatrix,
+	#name : 'AIDistanceSquare',
+	#superclass : 'AISymetricMatrix',
 	#instVars : [
 		'distanceBlock',
 		'items',
 		'dendrogram'
 	],
-	#category : #'AI-HierarchicalClustering-Math'
+	#category : 'AI-HierarchicalClustering-Math',
+	#package : 'AI-HierarchicalClustering',
+	#tag : 'Math'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 AIDistanceSquare class >> on1D: aCollection [
 	" Answer a new distance square matrix for aCollection of the receiver configured with a default distance "
 
@@ -21,7 +23,7 @@ AIDistanceSquare class >> on1D: aCollection [
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 AIDistanceSquare class >> on: anObject [
 	" Answer a new distance square matrix for anObject of the receiver configured with a default distance "
 
@@ -30,7 +32,7 @@ AIDistanceSquare class >> on: anObject [
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 AIDistanceSquare class >> on: vectorA and: vectorB using: distanceBlock [
 	
 	[vectorA size = vectorB size] assert.
@@ -39,7 +41,7 @@ AIDistanceSquare class >> on: vectorA and: vectorB using: distanceBlock [
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 AIDistanceSquare class >> on: aCollection using: distanceBlock [
 	" Answer a new distance square matrix on aCollection items and with distanceBlock to obtain the distance between element vectors "
 
@@ -48,19 +50,19 @@ AIDistanceSquare class >> on: aCollection using: distanceBlock [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDistanceSquare >> at: row and: column put: aNumber [
 	
 	^self noModificationError
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDistanceSquare >> at: row at: column put: aNumber [
 	
 	(partialColumns at: row) at: column put: aNumber
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AIDistanceSquare >> checkInvariant [
 	
 	^super checkInvariant
@@ -68,31 +70,31 @@ AIDistanceSquare >> checkInvariant [
 			[(distanceBlock respondsTo: #value:value:) and: [items isCollection]]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AIDistanceSquare >> collectDendrogramItems [
 	
 	^ items asArrayOfRows collect: [ : item | AIDendrogram with: item ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AIDistanceSquare >> copyClusteringData [
 	
 	^partialColumns collect: [:each | each copy]
 ]
 
-{ #category : #constants }
+{ #category : 'constants' }
 AIDistanceSquare >> defaultDistanceBlock [
 	
 	^[:a :b | a dist: b]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDistanceSquare >> dendrogram [
 	dendrogram ifNil: [ self performSeriation ].
 	^ dendrogram
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDistanceSquare >> distanceBlock [
 	" Answer a <BlockClosure> with the default behavior for calculating distance between receiver's elements "
 
@@ -100,13 +102,13 @@ AIDistanceSquare >> distanceBlock [
 		ifNil: [ distanceBlock := self defaultDistanceBlock ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDistanceSquare >> distanceBlock: anObject [
 	
 	distanceBlock := anObject
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 AIDistanceSquare >> initialize: vectorA and: vectorB using: aDistanceBlock [
 	
 	items := nil.
@@ -122,7 +124,7 @@ AIDistanceSquare >> initialize: vectorA and: vectorB using: aDistanceBlock [
 						value: (vectorB at: row)]]
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 AIDistanceSquare >> initializeFrom1D: aCollection [
 	" Private - Assume aCollection to be 1D (flat) collection. Read items from it and set the receiver's lower triangular matrix "
 	
@@ -142,7 +144,7 @@ AIDistanceSquare >> initializeFrom1D: aCollection [
 
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 AIDistanceSquare >> initializeFrom: anObject [
 	" Private - anObject should know how to initialize for the receiver's lower triangular items ."
 
@@ -152,7 +154,7 @@ AIDistanceSquare >> initializeFrom: anObject [
 
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 AIDistanceSquare >> initializeFromDataFrame: aDataFrame [
 	" Private - Read items from aCollection and set the receiver's lower triangular items applying the distance formula between vectors in the data frame."
 
@@ -166,7 +168,7 @@ AIDistanceSquare >> initializeFromDataFrame: aDataFrame [
 
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 AIDistanceSquare >> initializeFromNumbers: aCollection [
 	" Private - Assume aCollection to be 1D (flat) collection. Read items from it and set the receiver's lower triangular matrix "
 	
@@ -179,7 +181,7 @@ AIDistanceSquare >> initializeFromNumbers: aCollection [
 
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 AIDistanceSquare >> initializeFromPoints: someItems [ 
 	
 	items := someItems.
@@ -190,7 +192,7 @@ AIDistanceSquare >> initializeFromPoints: someItems [
 				value: (items at: row) ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 AIDistanceSquare >> initializeFromVectorItems: aCollection [ 
 
 	items := aCollection.
@@ -201,18 +203,18 @@ AIDistanceSquare >> initializeFromVectorItems: aCollection [
 						value: (items at: row)]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDistanceSquare >> items [
 	
 	^items
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDistanceSquare >> items: anObject [
 	items := anObject
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AIDistanceSquare >> newVectorOfSize: i itemsFrom: aCollection dimensions: n [
 	" Private - Answer a new vector of i size with items from aCollection, read as condensed indices.
 	To get each element (from aCollection) in the new vector, the number of elements to the left and above is obtained for each position, depending of the dimensions of the whole receiver (a squareform matrix) and the requested vector size (each row in the current iteration) "
@@ -229,7 +231,7 @@ AIDistanceSquare >> newVectorOfSize: i itemsFrom: aCollection dimensions: n [
 	^ vector
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 AIDistanceSquare >> performSeriation [
 	| newOrder |
 	dendrogram := (AIClusterEngine withDistanceMatrix: self) averageLinkage.
@@ -237,7 +239,7 @@ AIDistanceSquare >> performSeriation [
 	self rearrange: newOrder
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AIDistanceSquare >> rearrange: newItems [
 	
 	| newColumns indices |

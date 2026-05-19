@@ -1,6 +1,6 @@
-Extension { #name : #DataFrame }
+Extension { #name : 'DataFrame' }
 
-{ #category : #'*AI-HierarchicalClustering' }
+{ #category : '*AI-HierarchicalClustering' }
 DataFrame >> initializeDistanceSquareFor: anAIDistanceSquare [
 	" Initialize anAIDistanceSquare matrix using the receiver's contents "
 

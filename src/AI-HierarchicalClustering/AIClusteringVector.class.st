@@ -2,17 +2,19 @@
 Copyright (c), 2004-2007 Adrian Kuhn. This class is part of Hapax. Hapax is distributed under BSD License, see package comment.
 "
 Class {
-	#name : #AIClusteringVector,
-	#superclass : #AIArrayVector,
-	#type : #variable,
+	#name : 'AIClusteringVector',
+	#superclass : 'AIArrayVector',
+	#type : 'variable',
 	#instVars : [
 		'min',
 		'found'
 	],
-	#category : #'AI-HierarchicalClustering-Math'
+	#category : 'AI-HierarchicalClustering-Math',
+	#package : 'AI-HierarchicalClustering',
+	#tag : 'Math'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIClusteringVector >> at: index put: aNumber [
 	super at: index put: aNumber.
 	(found isNotNil and: [ found = index or: [ aNumber < min ] ])
@@ -20,25 +22,25 @@ AIClusteringVector >> at: index put: aNumber [
 	^ aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIClusteringVector >> found [
 	
 	^found
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIClusteringVector >> min [
 	found ifNil: [ self update ].
 	^ min
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIClusteringVector >> unsetAt: index [
 	super at: index put: Float infinity.
 	found = index ifTrue: [ found := nil ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AIClusteringVector >> update [
 
 	min := Float infinity.

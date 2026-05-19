@@ -1,6 +1,6 @@
-Extension { #name : #Integer }
+Extension { #name : 'Integer' }
 
-{ #category : #'*AI-HierarchicalClustering' }
+{ #category : '*AI-HierarchicalClustering' }
 Integer >> findNK [
 
 	" Yields all n and k such that n take: k = self.
@@ -31,7 +31,7 @@ Integer >> findNK [
 				  choose := (choose / (n + 1 - k)) ceiling ] ] ]
 ]
 
-{ #category : #'*AI-HierarchicalClustering' }
+{ #category : '*AI-HierarchicalClustering' }
 Integer >> firstOver: k with: c [
     " Binary search to find smallest value of n for which n^k >= c "
 	| n lo hi mid |

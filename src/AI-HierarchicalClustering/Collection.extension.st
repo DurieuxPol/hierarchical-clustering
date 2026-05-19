@@ -1,6 +1,6 @@
-Extension { #name : #Collection }
+Extension { #name : 'Collection' }
 
-{ #category : #'*AI-HierarchicalClustering' }
+{ #category : '*AI-HierarchicalClustering' }
 Collection >> cross: aCollection do: aBlock [
 
 	self do: [:each |

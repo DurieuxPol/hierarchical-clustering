@@ -80,10 +80,13 @@ AIClusteringEngineComparisonTest >> plot [
 	canvas := RSCanvas new.
 
 	datasets withIndexDo: [ :dataset :index |
+			| normalizedDataset |
+			normalizedDataset := dataset normalizedUsing: AIStandardizationNormalizer new.
+
 			linkageMethods do: [ :linkage |
 					| numberOfCluster clusty clusters compChart |
 					numberOfCluster := numbersOfClusters at: index.
-					clusty := AIClusterEngine with: dataset.
+					clusty := AIClusterEngine with: normalizedDataset.
 					clusty hierarchicalClusteringUsing: linkage.
 					clusters := clusty dendrogram breakInto: numberOfCluster.
 					compChart := RSCompositeChart new.

@@ -2,19 +2,21 @@
 Copyright (c), 2004-2007 Adrian Kuhn. This class is part of Hapax. Hapax is distributed under BSD License, see package comment.
 "
 Class {
-	#name : #AICorrelationVector,
-	#superclass : #AIVector,
-	#type : #bytes,
-	#category : #'AI-HierarchicalClustering-Math'
+	#name : 'AICorrelationVector',
+	#superclass : 'AIVector',
+	#type : 'bytes',
+	#category : 'AI-HierarchicalClustering-Math',
+	#package : 'AI-HierarchicalClustering',
+	#tag : 'Math'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 AICorrelationVector class >> new: size [
 	
 	^self basicNew: size << 1
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AICorrelationVector >> at: anIndex [
 	"Answer a number between 1.0 and -1.0 at the given index.
 	The numbers are internally stored as 16-bit integer; and nil as zero."
@@ -26,7 +28,7 @@ AICorrelationVector >> at: anIndex [
 		ifFalse: [(short - 16r8000) asFloat / 16r7FFF]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AICorrelationVector >> at: anIndex put: aNumber [
 	"Store a number between 1.0 and -1.0 at the given index.
 	The number is stores as 16-bit integer; nil is stored as zero."
@@ -40,13 +42,13 @@ AICorrelationVector >> at: anIndex put: aNumber [
 	^aNumber
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AICorrelationVector >> defaultElement [
 	
 	^nil
 ]
 
-{ #category : #'As yet unclassified' }
+{ #category : 'As yet unclassified' }
 AICorrelationVector >> min [
 	
 	^(self reject: #isNil)
@@ -54,20 +56,20 @@ AICorrelationVector >> min [
 		into: [:each :min | min min: each]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AICorrelationVector >> size [
 	
 	^self basicSize >> 1
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AICorrelationVector >> unsignedShortAt: byteIndex [
 	
 	<primitive: 540>
 	^self primitiveFailed
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AICorrelationVector >> unsignedShortAt: byteIndex put: anUnsignedShort [
 	
 	<primitive: 541>

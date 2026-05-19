@@ -2,16 +2,18 @@
 Copyright (c), 2004-2007 Adrian Kuhn. This class is part of Hapax. Hapax is distributed under BSD License, see package comment.
 "
 Class {
-	#name : #AICollectionItem,
-	#superclass : #Collection,
+	#name : 'AICollectionItem',
+	#superclass : 'Collection',
 	#instVars : [
 		'item',
 		'collection'
 	],
-	#category : #'AI-HierarchicalClustering-Core'
+	#category : 'AI-HierarchicalClustering-Core',
+	#package : 'AI-HierarchicalClustering',
+	#tag : 'Core'
 }
 
-{ #category : #adding }
+{ #category : 'adding' }
 AICollectionItem >> add: newObject [
 	" *** This method was defined by Collection as a subclass responsibility.
 	Replace its body with a proper implementation. *** "
@@ -19,19 +21,19 @@ AICollectionItem >> add: newObject [
 	self error: 'Subclass responsibility stub not reimplemented'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AICollectionItem >> collection [
 	
 	^collection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AICollectionItem >> collection: anObject [
 	
 	collection := anObject
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 AICollectionItem >> do: aBlock [
 	" *** This method was defined by Collection as a subclass responsibility.
 	Replace its body with a proper implementation. *** "
@@ -39,19 +41,19 @@ AICollectionItem >> do: aBlock [
 	self error: 'Subclass responsibility stub not reimplemented'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AICollectionItem >> item [
 	
 	^item
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AICollectionItem >> item: anObject [
 	
 	item := anObject
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 AICollectionItem >> remove: oldObject ifAbsent: anExceptionBlock [
 	" *** This method was defined by Collection as a subclass responsibility.
 	Replace its body with a proper implementation. *** "
