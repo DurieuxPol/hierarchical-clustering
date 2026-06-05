@@ -27,7 +27,7 @@ AIClusteringEngineComparisonTest >> initialize [
 
 	datasets := self loadDatasets.
 	linkageMethods := { #singleLinkage. #averageLinkage. #completeLinkage. #wardsMethod }.
-	numbersOfClusters := { 3. 3. 3 }
+	numbersOfClusters := { 2. 2. 3 }
 ]
 
 { #category : 'accessing' }

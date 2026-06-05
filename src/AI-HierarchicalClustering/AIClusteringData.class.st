@@ -9,7 +9,9 @@ Class {
 		'value',
 		'clusters',
 		'foundA0',
-		'foundB0'
+		'foundB0',
+		'nclusters',
+		'distanceMatrix'
 	],
 	#category : 'AI-HierarchicalClustering-Core',
 	#package : 'AI-HierarchicalClustering',
@@ -40,14 +42,14 @@ AIClusteringData class >> vectorSpecies [
 { #category : 'linkage functions' }
 AIClusteringData >> averageLinkage [
 	
-	| sizeA sizeB |
+	| weightA weightB sizeA sizeB |
 	sizeA := (clusters at: foundA0) size "asDouble"asFloat.
 	sizeB := (clusters at: foundB0) size "asDouble"asFloat.
-"	weightA := sizeA / (sizeA + sizeB).
-	weightB := sizeB / (sizeA + sizeB)."
+	weightA := sizeA / (sizeA + sizeB).
+	weightB := sizeB / (sizeA + sizeB).
 	self
 		privateLinkage:
-			[:index0 :valueA :valueB | (valueA / sizeA) min: (valueB / sizeB)]
+			[:index0 :valueA :valueB | valueA * weightA + (valueB * weightB)]
 ]
 
 { #category : 'linkage functions' }
@@ -182,10 +184,10 @@ AIClusteringData >> wardsMethod [
 	valueC := self at: foundA0 and: foundB0.
 	self
 		privateLinkage:
-			[:index0 :valueA :valueB | 
+			[:index0 :valueA :valueB |
 			sizeC := (clusters at: index0) size.
 			weightA := (sizeA + sizeC) / (sizeA + sizeB + sizeC).
 			weightB := (sizeB + sizeC) / (sizeA + sizeB + sizeC).
 			weightC := sizeC / (sizeA + sizeB + sizeC).
-			valueA * weightA + (valueB * weightB) - (valueC * weightC)]
+			(valueA squared * weightA + (valueB squared * weightB) - (valueC squared * weightC)) sqrt]
 ]
