@@ -9,9 +9,7 @@ Class {
 		'value',
 		'clusters',
 		'foundA0',
-		'foundB0',
-		'nclusters',
-		'distanceMatrix'
+		'foundB0'
 	],
 	#category : 'AI-HierarchicalClustering-Core',
 	#package : 'AI-HierarchicalClustering',
