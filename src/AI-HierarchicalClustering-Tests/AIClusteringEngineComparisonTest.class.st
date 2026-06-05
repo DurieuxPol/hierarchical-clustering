@@ -22,6 +22,13 @@ AIClusteringEngineComparisonTest >> datasets: anObject [
 	datasets := anObject
 ]
 
+{ #category : 'as yet unclassified' }
+AIClusteringEngineComparisonTest >> defaultFileLocation [
+	"Put here the absolute path to the directory where the datasets are stored"
+
+	^ nil
+]
+
 { #category : 'initialization' }
 AIClusteringEngineComparisonTest >> initialize [
 
@@ -47,13 +54,17 @@ AIClusteringEngineComparisonTest >> loadDatasets [
 
 	| circles moons blobs |
 	circles := (DataFrame
-		            readFromCsv: '/Users/poldurieux/circles_numpy.csv' asFileReference
+		            readFromCsv: (self defaultFileLocation , 'circles.csv') asFileReference
 		            withColumnNames: { 'x'. 'y' }
 		            separator: $,) collect: [ :row | row collect: #asNumber ].
-	moons := (DataFrame readFromCsv: '/Users/poldurieux/moons_numpy.csv' asFileReference withColumnNames: { 'x'. 'y' } separator: $,)
-		         collect: [ :row | row collect: #asNumber ].
-	blobs := (DataFrame readFromCsv: '/Users/poldurieux/blobs_numpy.csv' asFileReference withColumnNames: { 'x'. 'y' } separator: $,)
-		         collect: [ :row | row collect: #asNumber ].
+	moons := (DataFrame
+		          readFromCsv: (self defaultFileLocation , 'moons.csv') asFileReference
+		          withColumnNames: { 'x'. 'y' }
+		          separator: $,) collect: [ :row | row collect: #asNumber ].
+	blobs := (DataFrame
+		          readFromCsv: (self defaultFileLocation , 'blobs.csv') asFileReference
+		          withColumnNames: { 'x'. 'y' }
+		          separator: $,) collect: [ :row | row collect: #asNumber ].
 	^ {
 		  circles.
 		  moons.
