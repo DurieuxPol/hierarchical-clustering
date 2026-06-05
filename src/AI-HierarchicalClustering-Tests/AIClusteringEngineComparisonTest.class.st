@@ -22,7 +22,7 @@ AIClusteringEngineComparisonTest >> datasets: anObject [
 	datasets := anObject
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'access' }
 AIClusteringEngineComparisonTest >> defaultFileLocation [
 	"Put here the absolute path to the directory where the datasets are stored"
 
@@ -49,7 +49,7 @@ AIClusteringEngineComparisonTest >> linkageMethods: anObject [
 	linkageMethods := anObject
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'load' }
 AIClusteringEngineComparisonTest >> loadDatasets [
 
 	| circles moons blobs |
