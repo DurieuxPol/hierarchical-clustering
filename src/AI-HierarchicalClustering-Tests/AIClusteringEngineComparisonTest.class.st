@@ -1,3 +1,8 @@
+"
+This class is used to compare the behaviour of Pharo's hierarchical clustering with Python's behaviour on circles, moons and blobs datasets, using single, complete, average and wards linkages.
+For better comparison, datasets are created in Python and stored as csv files in the same folder. The datasets are loaded in Pharo with the loadDatasets method, and the clusterings are shown with the plot method.
+An example of Python script to generate and visualize clusterings can be found here: https://scikit-learn.org/stable/auto_examples/cluster/plot_linkage_comparison.html .
+"
 Class {
 	#name : 'AIClusteringEngineComparisonTest',
 	#superclass : 'Object',
@@ -22,7 +27,7 @@ AIClusteringEngineComparisonTest >> datasets: anObject [
 	datasets := anObject
 ]
 
-{ #category : 'access' }
+{ #category : 'accessing' }
 AIClusteringEngineComparisonTest >> defaultFileLocation [
 	"Put here the absolute path to the directory where the datasets are stored"
 
@@ -49,7 +54,7 @@ AIClusteringEngineComparisonTest >> linkageMethods: anObject [
 	linkageMethods := anObject
 ]
 
-{ #category : 'load' }
+{ #category : 'loading' }
 AIClusteringEngineComparisonTest >> loadDatasets [
 
 	| circles moons blobs |
@@ -83,7 +88,7 @@ AIClusteringEngineComparisonTest >> numbersOfClusters: anObject [
 	numbersOfClusters := anObject
 ]
 
-{ #category : 'rende' }
+{ #category : 'rendering' }
 AIClusteringEngineComparisonTest >> plot [
 
 	<script: 'self new plot open'>
