@@ -2,21 +2,23 @@
 Copyright (c), 2004-2007 Adrian Kuhn. This class is part of Hapax. Hapax is distributed under BSD License, see package comment.
 "
 Class {
-	#name : #AISeriationEngine,
-	#superclass : #Object,
+	#name : 'AISeriationEngine',
+	#superclass : 'Object',
 	#instVars : [
 		'elements'
 	],
-	#category : #'AI-HierarchicalClustering-Core'
+	#category : 'AI-HierarchicalClustering-Core',
+	#package : 'AI-HierarchicalClustering',
+	#tag : 'Core'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 AISeriationEngine class >> applyOn: elements [
 	
 	^(self with: elements) defaultAlgorithm
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 AISeriationEngine class >> with: elements [
 	
 	^(self new)
@@ -24,25 +26,25 @@ AISeriationEngine class >> with: elements [
 		yourself
 ]
 
-{ #category : #algorithm }
+{ #category : 'algorithm' }
 AISeriationEngine >> defaultAlgorithm [
 	
 	^self orderDendrogramLeaves
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AISeriationEngine >> elements [
 	
 	^elements
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AISeriationEngine >> elements: anObject [
 	
 	elements := anObject
 ]
 
-{ #category : #algorithm }
+{ #category : 'algorithm' }
 AISeriationEngine >> orderDendrogramLeaves [
 	
 	| clusty |

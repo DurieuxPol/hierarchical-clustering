@@ -2,35 +2,37 @@
 Copyright (c), 2004-2007 Adrian Kuhn. This class is part of Hapax. Hapax is distributed under BSD License, see package comment.
 "
 Class {
-	#name : #AITimeWarpingEngine,
-	#superclass : #Object,
+	#name : 'AITimeWarpingEngine',
+	#superclass : 'Object',
 	#instVars : [
 		'vectorA',
 		'vectorB',
 		'distanceBlock'
 	],
-	#category : #'AI-HierarchicalClustering-Core'
+	#category : 'AI-HierarchicalClustering-Core',
+	#package : 'AI-HierarchicalClustering',
+	#tag : 'Core'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AITimeWarpingEngine >> distanceBlock [
 	
 	^distanceBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AITimeWarpingEngine >> distanceBlock: anObject [
 	
 	distanceBlock := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AITimeWarpingEngine >> getCost [
 	
 	^self getCostMatrix last
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AITimeWarpingEngine >> getCostMatrix [
 	| cost matrix |
 	matrix := AIDistanceSquare on: vectorA and: vectorB using: self distanceBlock.
@@ -49,25 +51,25 @@ AITimeWarpingEngine >> getCostMatrix [
 	^ cost
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AITimeWarpingEngine >> vectorA [
 	
 	^vectorA
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AITimeWarpingEngine >> vectorA: anObject [
 	
 	vectorA := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AITimeWarpingEngine >> vectorB [
 	
 	^vectorB
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AITimeWarpingEngine >> vectorB: anObject [
 	
 	vectorB := anObject

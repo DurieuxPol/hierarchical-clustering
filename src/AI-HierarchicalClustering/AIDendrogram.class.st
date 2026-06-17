@@ -2,16 +2,18 @@
 Copyright (c), 2004-2007 Adrian Kuhn. This class is part of Hapax. Hapax is distributed under BSD License, see package comment.
 "
 Class {
-	#name : #AIDendrogram,
-	#superclass : #Collection,
+	#name : 'AIDendrogram',
+	#superclass : 'Collection',
 	#instVars : [
 		'parent',
 		'depth'
 	],
-	#category : #'AI-HierarchicalClustering-Dendrogram'
+	#category : 'AI-HierarchicalClustering-Dendrogram',
+	#package : 'AI-HierarchicalClustering',
+	#tag : 'Dendrogram'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 AIDendrogram class >> exampleAvgLinkageFromNumbers [
 	<example>
 	
@@ -19,7 +21,7 @@ AIDendrogram class >> exampleAvgLinkageFromNumbers [
 
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AIDendrogram class >> exampleAvgLinkageFromNumbersInDataFrame [
 	<example>
 	
@@ -27,7 +29,7 @@ AIDendrogram class >> exampleAvgLinkageFromNumbersInDataFrame [
 
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AIDendrogram class >> exampleAvgLinkageFromPoints [
 	<example>
 	
@@ -35,7 +37,7 @@ AIDendrogram class >> exampleAvgLinkageFromPoints [
 
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AIDendrogram class >> exampleCentroidLinkageFromPoints [
 	<example>
 	
@@ -43,7 +45,7 @@ AIDendrogram class >> exampleCentroidLinkageFromPoints [
 
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AIDendrogram class >> exampleCompleteLinkageFromPoints [
 	<example>
 	
@@ -51,7 +53,7 @@ AIDendrogram class >> exampleCompleteLinkageFromPoints [
 
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AIDendrogram class >> exampleFromNumbersInDataFrameWithLinkage: aSelector [
 	<example>
 	
@@ -63,7 +65,7 @@ AIDendrogram class >> exampleFromNumbersInDataFrameWithLinkage: aSelector [
 
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AIDendrogram class >> exampleFromNumbersWithLinkage: aSelector [
 	<example>
 	
@@ -75,7 +77,7 @@ AIDendrogram class >> exampleFromNumbersWithLinkage: aSelector [
 
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AIDendrogram class >> exampleFromPointsWithLinkage: aSelector [
 	<example>
 	
@@ -87,7 +89,7 @@ AIDendrogram class >> exampleFromPointsWithLinkage: aSelector [
 
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AIDendrogram class >> exampleMeanLinkageFromPoints [
 	<example>
 	
@@ -95,7 +97,7 @@ AIDendrogram class >> exampleMeanLinkageFromPoints [
 
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AIDendrogram class >> exampleSingleLinkageFromPoints [
 	<example>
 	
@@ -103,7 +105,7 @@ AIDendrogram class >> exampleSingleLinkageFromPoints [
 
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AIDendrogram class >> exampleWardsFromPoints [
 	<example>
 	
@@ -111,7 +113,7 @@ AIDendrogram class >> exampleWardsFromPoints [
 
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AIDendrogram class >> sampleDataFrame [
 	" Answer a <DataFrame> of samples for examples "
 
@@ -169,7 +171,7 @@ Wyoming,6.8,161,60,15.6
 '
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AIDendrogram class >> sampleNumbers [
 	" Answer a <Collection> of sample Numbers for examples "
 
@@ -177,7 +179,7 @@ AIDendrogram class >> sampleNumbers [
 
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AIDendrogram class >> samplePoints [
 	" Answer a <Collection> of sample points for examples "
 
@@ -191,19 +193,19 @@ AIDendrogram class >> samplePoints [
 		}.
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 AIDendrogram class >> with: anElement [
 	
 	^AIDendrogramLeaf with: anElement
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 AIDendrogram >> add: newObject [
 	
 	self shouldNotImplement
 ]
 
-{ #category : #'break into clusters' }
+{ #category : 'break into clusters' }
 AIDendrogram >> breakAtThreshold: aNumber [
 	
 	| candidates |
@@ -212,7 +214,7 @@ AIDendrogram >> breakAtThreshold: aNumber [
 	^candidates reject: [:each | candidates includes: each parent]
 ]
 
-{ #category : #'break into clusters' }
+{ #category : 'break into clusters' }
 AIDendrogram >> breakInto: numberOfClusters [
 	
 	| all candidates |
@@ -228,13 +230,13 @@ AIDendrogram >> breakInto: numberOfClusters [
 			candidates size >= numberOfClusters ifTrue: [^candidates asArray]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogram >> depthFactor [
 
 	^ 20
 ]
 
-{ #category : #seriation }
+{ #category : 'seriation' }
 AIDendrogram >> dist: dendrogram [
 	
 	| sum |
@@ -245,13 +247,13 @@ AIDendrogram >> dist: dendrogram [
 	^sum average
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 AIDendrogram >> do: aBlock [
 	
 	self elementsDo: aBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogram >> elements [
 	
 	| stream |
@@ -260,19 +262,19 @@ AIDendrogram >> elements [
 	^stream contents
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 AIDendrogram >> elementsDo: aBlock [
 	
 	^self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogram >> heightFactor [
 
 	^ 3
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogram >> index [
 	
 	^self isRoot
@@ -283,36 +285,36 @@ AIDendrogram >> index [
 				ifFalse: [self parent index + self parent left size]]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 AIDendrogram >> isLeaf [
 
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 AIDendrogram >> isLeft [
 	
 	^self parent left == self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 AIDendrogram >> isNode [
 
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 AIDendrogram >> isRight [
 	
 	^self parent right == self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 AIDendrogram >> isRoot [
 	^ parent isNil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogram >> leaves [
 	
 	| stream |
@@ -321,25 +323,25 @@ AIDendrogram >> leaves [
 	^stream contents
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 AIDendrogram >> leavesDo: aBlock [
 	
 	^self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogram >> left [
 	
 	^self subclassResponsibility
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 AIDendrogram >> merge: dendrogram at: threshold [
 	
 	^AIDendrogramNode with: self with: dendrogram at: threshold
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogram >> nodes [
 	
 	| stream |
@@ -348,60 +350,60 @@ AIDendrogram >> nodes [
 	^stream contents
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 AIDendrogram >> nodesDo: aBlock [
 	
 	^self subclassResponsibility
 ]
 
-{ #category : #seriation }
+{ #category : 'seriation' }
 AIDendrogram >> orderLeafs [
 	
 	^self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogram >> parent [
 	
 	^parent
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogram >> parent: anObject [
 	parent := anObject
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 AIDendrogram >> remove: oldObject ifAbsent: anExceptionBlock [
 	
 	self shouldNotImplement
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogram >> right [
 	
 	^self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogram >> size [
 	
 	^self subclassResponsibility
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AIDendrogram >> species [
 	
 	^OrderedCollection
 ]
 
-{ #category : #seriation }
+{ #category : 'seriation' }
 AIDendrogram >> swap [
 	
 	^self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogram >> threshold [
 	
 	^self subclassResponsibility

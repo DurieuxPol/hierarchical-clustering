@@ -1,6 +1,6 @@
-Extension { #name : #IntegerTest }
+Extension { #name : 'IntegerTest' }
 
-{ #category : #'*AI-HierarchicalClustering-Tests' }
+{ #category : '*AI-HierarchicalClustering-Tests' }
 IntegerTest >> testFindNK [
 
 	self assert: 6 findNK equals:  #(6 1 6 5 4 2).

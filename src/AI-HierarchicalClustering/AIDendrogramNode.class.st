@@ -2,17 +2,19 @@
 Copyright (c), 2004-2007 Adrian Kuhn. This class is part of Hapax. Hapax is distributed under BSD License, see package comment.
 "
 Class {
-	#name : #AIDendrogramNode,
-	#superclass : #AIDendrogram,
+	#name : 'AIDendrogramNode',
+	#superclass : 'AIDendrogram',
 	#instVars : [
 		'left',
 		'right',
 		'threshold'
 	],
-	#category : #'AI-HierarchicalClustering-Dendrogram'
+	#category : 'AI-HierarchicalClustering-Dendrogram',
+	#package : 'AI-HierarchicalClustering',
+	#tag : 'Dendrogram'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 AIDendrogramNode class >> with: left with: right at: threshold [
 
 	^ self new
@@ -22,7 +24,7 @@ AIDendrogramNode class >> with: left with: right at: threshold [
 		yourself
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 AIDendrogramNode >> = aMLDendrogram [
 
 	self == aMLDendrogram
@@ -34,46 +36,46 @@ AIDendrogramNode >> = aMLDendrogram [
 		 and: [ self threshold = aMLDendrogram threshold ] ]
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 AIDendrogramNode >> elementsDo: aBlock [
 	
 	left elementsDo: aBlock.
 	right elementsDo: aBlock
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 AIDendrogramNode >> hash [ 
 	"#hash is implemented, because #= is implemented"
 
 	^ self left hash bitXor: (self right hash bitXor: self threshold hash)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 AIDendrogramNode >> isNode [
 
 	^ true
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 AIDendrogramNode >> leavesDo: aBlock [
 	
 	left leavesDo: aBlock.
 	right leavesDo: aBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogramNode >> left [
 	
 	^left
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogramNode >> left: anObject [
 	left := anObject.
 	anObject parent: self
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 AIDendrogramNode >> nodesDo: aBlock [
 	
 	aBlock value: self.
@@ -81,7 +83,7 @@ AIDendrogramNode >> nodesDo: aBlock [
 	right nodesDo: aBlock
 ]
 
-{ #category : #seriation }
+{ #category : 'seriation' }
 AIDendrogramNode >> orderLeafs [
 	
 	| a b c d array |
@@ -104,25 +106,25 @@ AIDendrogramNode >> orderLeafs [
 	self right orderLeafs
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogramNode >> right [
 	
 	^right
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogramNode >> right: anObject [
 	right := anObject.
 	anObject parent: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogramNode >> size [
 	
 	^left size + right size
 ]
 
-{ #category : #seriation }
+{ #category : 'seriation' }
 AIDendrogramNode >> swap [
 	
 	| swap |
@@ -131,13 +133,13 @@ AIDendrogramNode >> swap [
 	right := swap
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogramNode >> threshold [
 	
 	^threshold
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIDendrogramNode >> threshold: anObject [
 	threshold := anObject
 ]

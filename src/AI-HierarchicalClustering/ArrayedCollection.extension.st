@@ -1,6 +1,6 @@
-Extension { #name : #ArrayedCollection }
+Extension { #name : 'ArrayedCollection' }
 
-{ #category : #'*AI-HierarchicalClustering' }
+{ #category : '*AI-HierarchicalClustering' }
 ArrayedCollection >> asArrayOfRows [
 
 	^ self

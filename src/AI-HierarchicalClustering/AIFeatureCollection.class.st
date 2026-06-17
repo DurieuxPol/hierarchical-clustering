@@ -2,16 +2,18 @@
 Copyright (c), 2004-2007 Adrian Kuhn. This class is part of Hapax. Hapax is distributed under BSD License, see package comment.
 "
 Class {
-	#name : #AIFeatureCollection,
-	#superclass : #OrderedCollection,
-	#type : #variable,
+	#name : 'AIFeatureCollection',
+	#superclass : 'OrderedCollection',
+	#type : 'variable',
 	#instVars : [
 		'item'
 	],
-	#category : #'AI-HierarchicalClustering-Core'
+	#category : 'AI-HierarchicalClustering-Core',
+	#package : 'AI-HierarchicalClustering',
+	#tag : 'Core'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 AIFeatureCollection class >> item: anItem features: aCollection [
 	
 	^((self withAll: aCollection) sorted)
@@ -19,7 +21,7 @@ AIFeatureCollection class >> item: anItem features: aCollection [
 		yourself
 ]
 
-{ #category : #distance }
+{ #category : 'distance' }
 AIFeatureCollection >> chroniaHausdorffDistance: aFeatureCollection [
 	"Answer a modified hausdorff distance between myself and aFeatureCollection. 
 	Further information see 'How Developers Drive Software Evolution' (to be published at IWPSE 2005).
@@ -32,13 +34,13 @@ AIFeatureCollection >> chroniaHausdorffDistance: aFeatureCollection [
 	^distance value
 ]
 
-{ #category : #distance }
+{ #category : 'distance' }
 AIFeatureCollection >> dist: aFeatureCollection [
 	
 	^self hausdorffDistance: aFeatureCollection
 ]
 
-{ #category : #distance }
+{ #category : 'distance' }
 AIFeatureCollection >> hausdorffDistance: aFeatureCollection [
 	"Answer the hausdorff distance between myself and aFeatureCollection. 
 	Limitations of the implementation see FeatureCollection>>hausdorffMinima:."
@@ -50,7 +52,7 @@ AIFeatureCollection >> hausdorffDistance: aFeatureCollection [
 	^distance value
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AIFeatureCollection >> hausdorffMinima: aFeatureCollection [
 	"Answer for each element in myself the distance to the nearest element in aFeatureCollection.
 	Assumes that the elements of both collections are sorted using an ordering that is compatible
@@ -69,19 +71,19 @@ AIFeatureCollection >> hausdorffMinima: aFeatureCollection [
 	^minima
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIFeatureCollection >> item [
 	
 	^item
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIFeatureCollection >> setItem: anObject [
 	
 	item := anObject
 ]
 
-{ #category : #distance }
+{ #category : 'distance' }
 AIFeatureCollection >> sizeDistance: aFeatureCollection [
 	
 	^self size dist: aFeatureCollection size

@@ -1,1 +1,1 @@
-Package { #name : #'AI-HierarchicalClustering-Tests' }
+Package { #name : 'AI-HierarchicalClustering-Tests' }

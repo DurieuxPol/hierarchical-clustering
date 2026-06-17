@@ -2,30 +2,32 @@
 Copyright (c), 2004-2007 Adrian Kuhn. This class is part of Hapax. Hapax is distributed under BSD License, see package comment.
 "
 Class {
-	#name : #AIValueItem,
-	#superclass : #Association,
-	#category : #'AI-HierarchicalClustering-Core'
+	#name : 'AIValueItem',
+	#superclass : 'Association',
+	#category : 'AI-HierarchicalClustering-Core',
+	#package : 'AI-HierarchicalClustering',
+	#tag : 'Core'
 }
 
-{ #category : #'distance functions' }
+{ #category : 'distance functions' }
 AIValueItem >> dist: anItem [
 	
 	^self value dist: anItem value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIValueItem >> item [
 	
 	^self key
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AIValueItem >> item: anObject [
 	
 	^self key: anObject
 ]
 
-{ #category : #'distance functions' }
+{ #category : 'distance functions' }
 AIValueItem >> similarity: anItem [
 	
 	^self value similarity: anItem value

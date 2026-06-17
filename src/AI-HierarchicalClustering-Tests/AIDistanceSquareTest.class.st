@@ -2,15 +2,17 @@
 A MLDistanceSquareTest is a test class for testing the behavior of MLDistanceSquare
 "
 Class {
-	#name : #AIDistanceSquareTest,
-	#superclass : #TestCase,
+	#name : 'AIDistanceSquareTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'distanceMatrix'
 	],
-	#category : #'AI-HierarchicalClustering-Tests-Math'
+	#category : 'AI-HierarchicalClustering-Tests-Math',
+	#package : 'AI-HierarchicalClustering-Tests',
+	#tag : 'Math'
 }
 
-{ #category : #test }
+{ #category : 'test' }
 AIDistanceSquareTest >> distanceSquare10Elements [
 	" Answer a distance square matrix of ten elements manually built "
 	
@@ -26,7 +28,7 @@ AIDistanceSquareTest >> distanceSquare10Elements [
 		
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 AIDistanceSquareTest >> distanceSquare15Elements [
 	" Answer a distance square matrix of 15 elements manually built "
 	
@@ -43,13 +45,13 @@ AIDistanceSquareTest >> distanceSquare15Elements [
 		
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 AIDistanceSquareTest >> matrixClass [
 	
 	^ AIDistanceSquare
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 AIDistanceSquareTest >> testAtAndPut [
 
 	| validDs |
@@ -59,7 +61,7 @@ AIDistanceSquareTest >> testAtAndPut [
 
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 AIDistanceSquareTest >> testCopyClusteringData [
 
 	| ds expected |
@@ -74,7 +76,7 @@ AIDistanceSquareTest >> testCopyClusteringData [
 
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 AIDistanceSquareTest >> testDistanceBlock [
 
 	| ds |
@@ -85,7 +87,7 @@ AIDistanceSquareTest >> testDistanceBlock [
 	self assert: (ds distanceBlock isKindOf: BlockClosure).
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 AIDistanceSquareTest >> testInitializeFrom1D [
 
 	| invalidItemsSizeCollection aMatrix |
@@ -102,7 +104,7 @@ AIDistanceSquareTest >> testInitializeFrom1D [
 	self should: [ aMatrix initializeFrom1D: invalidItemsSizeCollection ] raise: Error.
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 AIDistanceSquareTest >> testItems [
 
 	| ds newItems |
@@ -115,7 +117,7 @@ AIDistanceSquareTest >> testItems [
 	self assert: ds items equals: newItems.
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 AIDistanceSquareTest >> testNewVectorOfSizeItemsFromDimensions [
 
 	| ds vector |
@@ -133,7 +135,7 @@ AIDistanceSquareTest >> testNewVectorOfSizeItemsFromDimensions [
 	self assert: vector equals: (self vectorClass withAll: #(4 7 9 10 0)).
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 AIDistanceSquareTest >> vectorClass [
 	
 	^ AIArrayVector
